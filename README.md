@@ -1,1 +1,1 @@
-# selfeducationSnakeGame
+Myself educetion code =)
