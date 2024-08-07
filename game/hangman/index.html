@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hangman</title>
+	</head>
+	<body>
+		<h1 id="main-heading"><center>Игра Виселица!</center></h1>
+
+		<script>
+			// Создаем массив из слов
+			var words = [
+				"черепаха",
+				"обезьяна",
+				"слон",
+				"жираф",
+				"собака",
+				"кошка",
+				"варан",
+				"кит",
+				"хамелеон",
+				"бегемот",
+				"верблюд",
+				"мышь",
+				"хомяк",
+				"заяц",
+				"лиса",
+				"волк",
+				"медведь",
+			];
+
+			var word = words[Math.floor(Math.random() * words.length)];
+
+			var answerArray = [];
+			for (var i = 0; i < word.length; i++) {
+				answerArray[i] = "_";
+			}
+
+			var remainingLetters = word.length;
+
+			while (remainingLetters > 0) {
+				alert("Угадайте животное:\n" + answerArray.join(" "));
+				var guess = prompt(
+					"Введите букву (только маленькие буквы), или нажми Отмена для завершения игры."
+				);
+				if (guess === null) {
+					break;
+				} else if (guess.length !== 1) {
+					alert("Пожалуйста введите одну букву");
+				} else {
+					for (var j = 0; j < word.length; j++) {
+						if (word[j] === guess) {
+							answerArray[j] = guess;
+							remainingLetters--;
+						}
+					}
+				}
+			}
+
+			if (remainingLetters === 0) {
+				alert("ОТВЕТ: \n" + answerArray.join(" "));
+				alert("МОЛОДЕЦ! Ответ " + word);
+			} else {
+				alert("Очень ждаль :-(\nДо скорой встречи!");
+			}
+		</script>
+	</body>
+</html>
