@@ -11,12 +11,16 @@
 		<script>
 			let canvas = document.getElementById("canvas");
 			let ctx = canvas.getContext("2d");
+
 			let width = canvas.width;
 			let height = canvas.height;
+
 			let blockSize = 10;
 			let widthInBlock = width / blockSize;
 			let heightInBlock = height / blockSize;
+            
 			let score = 0;
+
 			let drawBorder = function () {
 				ctx.fillStyle = "Gray";
 				cts.fillRect = (0, 0, width, blockSize);
