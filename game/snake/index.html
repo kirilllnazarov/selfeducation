@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Snake</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+		<script src="https://code.jquerry.com/jquerry-2.1.0.js"></script>
+		<script>
+			let canvas = document.getElementById("canvas");
+			let ctx = canvas.getContext("2d");
+			let width = canvas.width;
+			let height = canvas.height;
+			let blockSize = 10;
+			let widthInBlock = width / blockSize;
+			let heightInBlock = height / blockSize;
+			let score = 0;
+			let drawBorder = function () {
+				ctx.fillStyle = "Gray";
+				cts.fillRect = (0, 0, width, blockSize);
+				cts.fillRect = (0, height - blockSize, width, blockSize);
+				cts.fillRect = (0, 0, blockSize, height);
+				cts.fillRect = (width - blockSize, 0, blockSize, height);
+			};
+			// let drawScore = function () {
+			// 	ctx.textBaseline = "top";
+			// 	ctx.textAlign = "top";
+			// 	ctx.fillText = ("Hello world", 50, 50);
+			// 	ctx.font = "20px Courier";
+			// 	ctx.fillText("Courier", 50, 50);
+			// 	ctx.font = "24px Comic Sans MS";
+			// 	ctx.fillText("Comic Sans", 50, 100);
+			// 	ctx.font = "18px Arial";
+			// 	ctx.fillText("Arial", 50, 150);
+			// };
+
+			let drawScore = function () {
+				ctx.font = "20px Courier";
+				ctx.fillStyle = "Black";
+				ctx.textAlign = "left";
+				ctx.textBaseline = "top";
+				ctx.fillText("Score: " + score, blockSize, blockSize);
+			};
+
+			let gameOver = function () {
+				clearInterval(intervalId);
+				ctx.font = "60px Courier";
+				ctx.fillStyle = "Black";
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.fillText("Game over", width / 2, height / 2);
+			};
+		</script>
+	</body>
+</html>
